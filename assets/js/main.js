@@ -8,7 +8,15 @@
   const sparkleCanvas = document.getElementById("sparkle");
   const ballCanvas = document.getElementById("disco-ball");
   const spotsCanvas = document.getElementById("disco-spots");
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const motionMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let reduce = motionMq.matches;
+  function syncMotionClass() {
+    reduce = motionMq.matches;
+    html.classList.toggle("reduced-motion", reduce);
+  }
+  syncMotionClass();
+  if (motionMq.addEventListener) motionMq.addEventListener("change", syncMotionClass);
+  else if (motionMq.addListener) motionMq.addListener(syncMotionClass);
 
   function closeNav() {
     if (!toggle || !nav) return;
@@ -24,6 +32,9 @@
     });
     nav.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", closeNav);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeNav();
     });
   }
 
@@ -62,11 +73,13 @@
     const sunOp = clamp(1 - ease * 1.15, 0, 1);
     const sunSc = 1 - ease * 0.32;
 
-    html.style.setProperty("--sun-x", sunX.toFixed(2) + "%");
-    html.style.setProperty("--sun-y", sunY.toFixed(2) + "%");
-    html.style.setProperty("--sun-opacity", sunOp.toFixed(3));
-    html.style.setProperty("--sun-scale", sunSc.toFixed(3));
-    html.style.setProperty("--sun-sink", ease.toFixed(3));
+    if (!reduce) {
+      html.style.setProperty("--sun-x", sunX.toFixed(2) + "%");
+      html.style.setProperty("--sun-y", sunY.toFixed(2) + "%");
+      html.style.setProperty("--sun-opacity", sunOp.toFixed(3));
+      html.style.setProperty("--sun-scale", sunSc.toFixed(3));
+      html.style.setProperty("--sun-sink", ease.toFixed(3));
+    }
 
     const contact = document.getElementById("contact");
     let lit = 0;

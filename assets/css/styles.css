@@ -129,7 +129,23 @@ button { font-family: inherit; }
   padding: 0.6rem 1rem;
   border-radius: 2px;
 }
-.skip:focus { top: 0.75rem; }
+.skip:focus,
+.skip:focus-visible {
+  top: 0.75rem;
+  outline: 2px solid var(--cream);
+  outline-offset: 2px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* Fixed overlays */
 #sparkle {
@@ -255,7 +271,6 @@ button { font-family: inherit; }
 .site-nav a:focus-visible {
   color: var(--ink);
   border-bottom-color: var(--gold);
-  outline: none;
 }
 .site-header.is-dark .site-nav a { color: rgba(255, 248, 242, 0.78); }
 .site-header.is-dark .site-nav a:hover,
@@ -299,8 +314,8 @@ button { font-family: inherit; }
   color: var(--ink-muted);
   margin: 0 0 0.85rem;
 }
-.on-dark .eyebrow,
 .on-dusk .eyebrow { color: #e8d0b0; }
+.on-dark .eyebrow { color: var(--cream); }
 
 .rule {
   display: flex;
@@ -410,7 +425,6 @@ html.js .hero .sun { opacity: 0; }
   background: var(--ink);
   color: var(--cream);
   border-color: var(--ink);
-  outline: none;
 }
 
 /* About — late sunset */
@@ -490,7 +504,6 @@ html.js .hero .sun { opacity: 0; }
 .artist-link:focus-visible {
   color: var(--ink-muted);
   border-bottom-color: var(--ink);
-  outline: none;
 }
 
 @media (max-width: 800px) {
@@ -507,7 +520,7 @@ html.js .hero .sun { opacity: 0; }
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
-  color: rgba(255, 248, 242, 0.78);
+  color: rgba(255, 248, 242, 0.96);
   margin: 1rem 0 2.5rem;
   max-width: 24em;
 }
@@ -524,7 +537,7 @@ html.js .hero .sun { opacity: 0; }
   border: 1px solid rgba(190, 154, 117, 0.22);
 }
 .look-item h3 { color: var(--cream); margin: 0 0 0.75rem; }
-.look-item p { margin: 0; color: rgba(255, 248, 242, 0.82); }
+.look-item p { margin: 0; color: rgba(255, 248, 242, 0.96); }
 .look-item .rule { margin-bottom: 1.1rem; }
 
 .look-note {
@@ -580,7 +593,6 @@ html.js .hero .sun { opacity: 0; }
 .contact-list a:hover,
 .contact-list a:focus-visible {
   border-bottom-color: var(--cream);
-  outline: none;
 }
 .contact .lead {
   margin: 1.15rem 0 0;
@@ -757,3 +769,21 @@ html.js .setting-sun { opacity: var(--sun-opacity); }
 @media (prefers-reduced-motion: reduce) {
   .setting-sun { will-change: auto; }
 }
+
+
+/* Visible keyboard focus (WCAG 2.4.7). Only appears for :focus-visible. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
+.site-header.is-dark a:focus-visible,
+.site-header.is-dark button:focus-visible,
+.on-dark a:focus-visible,
+.on-dusk a:focus-visible,
+.site-footer a:focus-visible {
+  outline-color: #e8d0b0;
+}
+
+html.js.reduced-motion .setting-sun { opacity: 0 !important; }
+html.js.reduced-motion .hero .sun { opacity: 1; }
