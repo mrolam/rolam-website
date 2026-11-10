@@ -64,6 +64,11 @@
   --wide: 68rem;
   --pad: clamp(1.25rem, 4vw, 2.5rem);
   --sparkle: 0;
+  --sun-x: 50%;
+  --sun-y: 96%;
+  --sun-opacity: 1;
+  --sun-scale: 1;
+  --ball-lit: 0;
   color-scheme: light;
 }
 
@@ -362,6 +367,7 @@ section { position: relative; z-index: 3; scroll-margin-top: calc(var(--header-h
   padding: clamp(2.5rem, 8vh, 5rem) 0 clamp(4rem, 10vh, 6.5rem);
   overflow: hidden;
 }
+html.js .hero .sun { opacity: 0; }
 .hero .sun {
   position: absolute;
   left: 50%;
@@ -539,7 +545,7 @@ section { position: relative; z-index: 3; scroll-margin-top: calc(var(--header-h
 }
 
 .contact {
-  padding: clamp(3rem, 8vh, 5.5rem) 0 clamp(4rem, 10vh, 6.5rem);
+  padding: clamp(3rem, 8vh, 5.5rem) 0 clamp(5.5rem, 14vh, 8.5rem);
 }
 .contact-panel {
   background: rgba(255, 248, 242, 0.05);
@@ -636,4 +642,118 @@ section { position: relative; z-index: 3; scroll-margin-top: calc(var(--header-h
   background: radial-gradient(circle, rgba(190, 154, 117, 0.12), transparent 68%);
 }
 .lookfor > *:not(.night-wash),
-.contact > *:not(.night-wash) { position: relative; z-index: 1; }
+.contact > .wrap-narrow { position: relative; z-index: 1; }
+
+
+/* ---- Setting sun (scroll-tied) --------------------------------------- */
+.setting-sun {
+  position: fixed;
+  left: var(--sun-x);
+  top: var(--sun-y);
+  width: min(80vw, 44rem);
+  height: min(80vw, 44rem);
+  transform: translate(-50%, -50%) scale(var(--sun-scale));
+  opacity: 0;
+  background: radial-gradient(circle at 50% 45%,
+    rgba(255, 220, 180, 0.72) 0%,
+    rgba(232, 168, 130, 0.34) 30%,
+    rgba(190, 154, 117, 0.1) 56%,
+    transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+  will-change: left, top, opacity, transform;
+}
+html.js .setting-sun { opacity: var(--sun-opacity); }
+.sun-core {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 6%;
+  height: 6%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(255, 248, 242, 0.7) 0%,
+    rgba(252, 230, 210, 0.45) 40%,
+    rgba(216, 168, 136, 0) 100%);
+  box-shadow: 0 0 36px 16px rgba(246, 210, 191, 0.28);
+}
+
+/* ---- Afterglow + disco ball at the bottom ---------------------------- */
+#disco-spots {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  opacity: var(--ball-lit);
+  mix-blend-mode: screen;
+}
+.horizon-glow {
+  position: absolute;
+  left: -18%;
+  bottom: -30%;
+  width: min(78vw, 50rem);
+  height: min(60vw, 36rem);
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--ball-lit);
+  background: radial-gradient(ellipse at 30% 80%,
+    rgba(252, 230, 210, 0.4) 0%,
+    rgba(246, 210, 191, 0.22) 24%,
+    rgba(216, 168, 136, 0.1) 50%,
+    transparent 72%);
+}
+.disco {
+  position: absolute;
+  right: clamp(0.15rem, 1.2vw, 2rem);
+  bottom: -0.35rem;
+  width: clamp(14.5rem, 28vw, 22rem);
+  height: clamp(17.4rem, 33.6vw, 26.4rem);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 1;
+}
+.disco-cord {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 18%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    rgba(232, 205, 160, 0) 0%,
+    rgba(232, 205, 160, 0.55) 40%,
+    rgba(190, 154, 117, 0.7) 100%);
+}
+#disco-ball {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .contact {
+    padding-bottom: 15rem;
+  }
+  .disco {
+    right: 0.2rem;
+    bottom: 2.25rem;
+    width: 12.25rem;
+    height: 14.7rem;
+  }
+  .horizon-glow {
+    width: 90vw;
+    height: 55vw;
+    left: -28%;
+    bottom: -10%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setting-sun { will-change: auto; }
+}
