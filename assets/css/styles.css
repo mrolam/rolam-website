@@ -436,12 +436,17 @@ html.js .hero .sun { opacity: 0; }
 /* Artists — dusk transition */
 .artists {
   padding: clamp(3.5rem, 9vh, 6.5rem) 0 clamp(5rem, 12vh, 8rem);
-  color: var(--cream);
+  color: var(--ink);
 }
+/* Ink type on the original mid-sunset mauve so cream/gold AA fails are fixed
+   without changing the body gradient. Label uses the same charcoal-muted
+   accent as About; a warmer gold cannot meet 4.5:1 on this band. */
+.artists > .wrap > .eyebrow { color: var(--ink-muted); }
+.artists h2 { color: var(--ink); }
 .artists .intro {
   margin: 0 0 2.25rem;
   max-width: 28rem;
-  color: rgba(255, 248, 242, 0.92);
+  color: var(--ink);
 }
 
 .artist-card {
@@ -555,6 +560,15 @@ html.js .hero .sun { opacity: 0; }
 
 @media (max-width: 800px) {
   .look-grid { grid-template-columns: 1fr; gap: 1rem; }
+  /* Tight, feathered dusk wash behind the cream eyebrow so it meets 4.5:1. */
+  .lookfor .eyebrow {
+    display: inline-block;
+    padding: 0.1em 0.28em 0.14em;
+    margin-left: -0.28em;
+    background: rgba(61, 42, 74, 0.48);
+    box-shadow: 0 0 0.65rem 0.45rem rgba(61, 42, 74, 0.42);
+    border-radius: 0;
+  }
 }
 
 .contact {
