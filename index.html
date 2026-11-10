@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolam Management — Artist Management</title>
+  <meta name="description" content="Rolam Management is a small, hands-on artist management company based in SoCal, growing its roster with care.">
+  <meta name="theme-color" content="#FCE6D2">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/open-sauce-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/images/logo.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <canvas id="sparkle" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Rolam Management, back to top">
+        <picture>
+          <source srcset="assets/images/logo.webp" type="image/webp">
+          <img class="logo-light" src="assets/images/logo.png" alt="Rolam" width="720" height="296">
+        </picture>
+        <picture>
+          <source srcset="assets/images/logo-on-dark.webp" type="image/webp">
+          <img class="logo-dark" src="assets/images/logo-on-dark.png" alt="" width="720" height="296">
+        </picture>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#artists">Artists</a></li>
+          <li><a href="#look-for">What we look for</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero on-light" id="top">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="hero-inner wrap">
+        <picture>
+          <source srcset="assets/images/logo.webp" type="image/webp">
+          <img class="hero-logo" src="assets/images/logo.png" alt="Rolam" width="720" height="296">
+        </picture>
+        <p class="eyebrow">Artist Management</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <p class="lede">A small, hands-on management company growing its roster, based in SoCal.</p>
+        <a class="hero-cta" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="about on-light" id="about">
+      <div class="wrap-narrow">
+        <p class="eyebrow">About</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2>Booking, contracts, and venue relationships.</h2>
+        <div class="section-copy">
+          <p>Rolam Management takes care of booking, contracts, and venue relationships so artists can stay focused on the work. The company is growing its roster carefully, with a SoCal base and a hands-on approach to each booking and introduction.</p>
+          <p>Founder Mitch Rolam brings a background in client management at American Express — the same attention to people and details he now brings to representing talent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="artists on-dusk" id="artists">
+      <div class="wrap">
+        <p class="eyebrow">Artists</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2>On the roster</h2>
+        <p class="intro">Rolam is currently working with VEEEDUB.</p>
+
+        <article class="artist-card">
+          <div class="artist-photo">
+            <picture>
+              <source type="image/webp" srcset="assets/images/veeedub-sm.webp 540w, assets/images/veeedub.webp 900w" sizes="(max-width: 800px) 100vw, 28rem">
+              <img src="assets/images/veeedub.jpg" srcset="assets/images/veeedub-sm.jpg 540w, assets/images/veeedub.jpg 900w" sizes="(max-width: 800px) 100vw, 28rem" alt="VEEEDUB, also known as Valerie Waite, in a studio portrait" width="900" height="1388">
+            </picture>
+          </div>
+          <div class="artist-body">
+            <p class="eyebrow">Los Angeles</p>
+            <h3>VEEEDUB</h3>
+            <p class="artist-name">Valerie Waite</p>
+            <div class="rule" aria-hidden="true"><i></i></div>
+            <p>LA DJ working in disco, jackin, funky and soulful house.</p>
+            <p>Recent sets include Palm Springs Pride at Palm Springs Surf Club and Oscar’s.</p>
+            <a class="artist-link" href="https://veeedubmusic.com" rel="noopener noreferrer" target="_blank">veeedubmusic.com</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lookfor on-dark" id="look-for">
+      <div class="night-wash" aria-hidden="true"></div>
+      <div class="night-wash alt" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">From my seat at Rolam</p>
+        <div class="rule" aria-hidden="true"><i></i></div>
+        <h2>What I look for in DJs &amp; artists</h2>
+        <p class="kicker">Not industry rules — just how I choose who I want to work with.</p>
+
+        <div class="look-grid">
+          <article class="look-item">
+            <div class="rule" aria-hidden="true"><i></i></div>
+            <h3>Craft &amp; identity</h3>
+            <p>A clear artistic point of view — something I can describe to a venue without guessing.</p>
+          </article>
+          <article class="look-item">
+            <div class="rule" aria-hidden="true"><i></i></div>
+            <h3>Clear goals</h3>
+            <p>You know what rooms, cities, or nights you’re aiming for. That helps me pitch with intention.</p>
+          </article>
+          <article class="look-item">
+            <div class="rule" aria-hidden="true"><i></i></div>
+            <h3>Reliable communication</h3>
+            <p>Quick, honest replies on availability, rates, and logistics. Bookings move when both sides stay clear.</p>
+          </article>
+        </div>
+
+        <p class="look-note">This is my taste — not a universal checklist.</p>
+        <p class="look-close">If that sounds like how you work, I’d like to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="contact on-dark" id="contact">
+      <div class="wrap-narrow">
+        <div class="contact-panel">
+          <p class="eyebrow">Booking &amp; contact</p>
+          <div class="rule" aria-hidden="true"><i></i></div>
+          <h2>Send a mix or EPK.</h2>
+          <p class="lead">A short note, a mix, or an EPK is the right place to start. Happy to begin with a conversation.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="label">Email</span>
+              <a href="mailto:mitch@rolams.com">mitch@rolams.com</a>
+            </li>
+            <li>
+              <span class="label">Instagram</span>
+              <a href="https://www.instagram.com/rolammanagement/" rel="noopener noreferrer" target="_blank">@rolammanagement</a>
+            </li>
+          </ul>
+          <p class="contact-note">For booking inquiries, email is usually the fastest way to reach Mitch.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="footer-inner">
+      <a href="#top" aria-label="Back to top">
+        <picture>
+          <source srcset="assets/images/logo-on-dark.webp" type="image/webp">
+          <img src="assets/images/logo-on-dark.png" alt="Rolam" width="720" height="296">
+        </picture>
+      </a>
+      <p>© 2026 Rolam Management · SoCal</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
